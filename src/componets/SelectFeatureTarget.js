@@ -1,12 +1,14 @@
 import "../css/SelectFeatureTarget.css";
 import Dataframe from "./Dataframe";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import ThemeContext from "./ThemeContext";
 
 function SelectFeatureTarget() {
   const [columns, setColumns] = useState([]);
   const [update, setUpdate] = useState(false);
   const [targetfeature, setTargetfeature] = useState("");
   const [selectedFeatures, setSelectedFeatures] = useState([]); // Change this to an array
+  const color = useContext(ThemeContext)
 
   useEffect(() => {
     fetchData();
@@ -87,7 +89,8 @@ function SelectFeatureTarget() {
 
   return (
     <div>
-      <h2 className="  mx-2 my-3 font-semibold border-t-2 border-b-2 border-blue-500 p-4 text-3xl" style={{fontFamily : 'ClashGrotesk'}}>Features</h2>
+      <h2 className={`text-2xl mb-4 p-5 font-semibold border-t-2 border-b-2 ${color === '#ED9ED6' && 'border-pink-500'} ${color === '#87C4FF' && 'border-blue-500'}
+      ${color === '#9ADE7B' && 'border-green-500'} ${color === '#FFCF96' && 'border-yellow-500'}`} style={{fontFamily : 'ClashGrotesk'}}>Features</h2>
       {columns.map((column, index) => (
         <>
           {column === targetfeature ? (
@@ -95,10 +98,12 @@ function SelectFeatureTarget() {
           ) : (
             <>
               <button
-                className={`p-2 m-1 rounded-sm hover:bg-blue-600 ${
+                className={`p-2 m-1 rounded-sm hover:bg-slate-200 ${
                   selectedFeatures.includes(column)
-                    ? "bg-blue-600"
-                    : "bg-blue-500"
+                    ? ` ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
+                    ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`
+                    : ` ${color === '#ED9ED6' && 'bg-pink-400'} ${color === '#87C4FF' && 'bg-blue-400'}
+                    ${color === '#9ADE7B' && 'bg-green-400'} ${color === '#FFCF96' && 'bg-yellow-400'}`
                 }`}
                 onClick={() => {
                   addinfeature(column);
@@ -114,8 +119,11 @@ function SelectFeatureTarget() {
       <h2 className="text-xl mx-2 my-3 font-semibold " style={{fontFamily : 'ClashGrotesk'}}>Target:</h2>
       {columns.map((column, index) => (
         <button
-          className={`p-2 m-1 rounded-sm hover:bg-blue-700 ${
-            targetfeature === column ? "bg-blue-700" : "bg-blue-500"
+          className={`p-2 m-1 rounded-sm hover:bg-slate-200 ${
+            targetfeature === column ? ` ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
+            ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`
+            : ` ${color === '#ED9ED6' && 'bg-pink-400'} ${color === '#87C4FF' && 'bg-blue-400'}
+            ${color === '#9ADE7B' && 'bg-green-400'} ${color === '#FFCF96' && 'bg-yellow-400'}`
           }`}
           onClick={() => {
             setTarget(column);

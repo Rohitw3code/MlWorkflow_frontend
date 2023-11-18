@@ -1,5 +1,6 @@
 import "../css/Dataframe.css";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import ThemeContext from "./ThemeContext";
 
 function Dataframe(props) {
   const [data, setData] = useState([]);
@@ -7,6 +8,7 @@ function Dataframe(props) {
   const [loading, setLoading] = useState(true); // Add loading state
   const [error, setError] = useState(null); // Add error state
 
+  const color = useContext(ThemeContext);
   useEffect(() => {
     fetchData();
   }, [props.cols]);
@@ -55,15 +57,21 @@ function Dataframe(props) {
         <>
         <div className="w-5/6 flex justify-around">
         <div className="flex justify-center">
-          <div className="text-white uppercase bg-gray-900 p-2 rounded my-3 mx-1 flex gap-3">
+          <div className={`border border-gray-300 uppercase p-2 rounded my-3 mx-1 flex gap-3
+          ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
+          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}>
             <h1> Row</h1>
             <span style={{ fontFamily : 'Poppins' }}>{shape[0]}</span>
           </div>
-          <div className="text-white uppercase bg-gray-900 p-2 rounded my-3 mx-1 flex gap-3">
+          <div className={`border border-gray-300 uppercase p-2 rounded my-3 mx-1 flex gap-3
+          ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
+          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}>
             <h1> Column </h1>
             <span style={{ fontFamily : 'Poppins' }}>{shape[1]}</span>
           </div>
-          <div className="text-white uppercase bg-gray-900 p-2 rounded my-3 mx-1 flex gap-3">
+          <div className={`border border-gray-300 uppercase p-2 rounded my-3 mx-1 flex gap-3
+          ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
+          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}>
             <h1> Shape </h1>
             <span style={{ fontFamily : 'Poppins' }}>{shape[0]} x {shape[1]}</span>
           </div>
@@ -88,8 +96,10 @@ function Dataframe(props) {
           <tr>
             {Object.keys(data).map((key, index) => (
               <th
-                className="text-white font-thin  p-2 border-0 "
-                style={{ background : '#29ADB2',
+                className={`font-thin  p-2 border-0
+          ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
+          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}
+                style={{
                   fontFamily : 'Poppins'
                }}
                 key={index}
@@ -109,7 +119,7 @@ function Dataframe(props) {
                   <>
                     <td
                       colSpan={1}
-                      style={{ background : '#E0F4FF',color : '#164863',fontFamily : 'Poppins',}}
+                      style={{ background : '#FFF6F6',color : '#164863',fontFamily : 'Poppins',}}
                       className=" p-2 text-white font-semibold border-0"
                       key={idx}
                     >

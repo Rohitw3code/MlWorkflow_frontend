@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../css/MLAlgo.css";
+import ThemeContext from "./ThemeContext";
 
 function MLAlgo() {
   const [features, setFeatures] = useState([]);
@@ -16,6 +17,7 @@ function MLAlgo() {
   const [params, setParams] = useState({});
   const [paramsKey, setParamsKey] = useState([]);
   const [showParams, setShowParams] = useState(true);
+  const color = useContext(ThemeContext)
 
   const fetchRegressionAlog = async () => {
     try {
@@ -163,14 +165,16 @@ function MLAlgo() {
 
   return (
     <>
-    <div className="bg-blue-600 p-5 rounded-md mr-3">
+    <div className={` p-5 rounded-md mr-3 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
+               ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`}>
 
       <h3 className="text-lg text-white mx-2 my-3 font-semibold">
         Choose the ML Alogorithm for the ML training
       </h3>
       <h3 className="text-lg text-white mx-2 my-3 font-semibold">Model Type</h3>
       <select
-        className="bg-blue-300 rounded p-2 m-2"
+        className={` m-2 rounded p-2 hover:bg-slate-200 ${color === '#ED9ED6' && 'bg-pink-300'} ${color === '#87C4FF' && 'bg-blue-300'}
+        ${color === '#9ADE7B' && 'bg-green-300'} ${color === '#FFCF96' && 'bg-yellow-300'}`}
         value={algoType || "regression"}
         onChange={(e) => {
           setAlgoType(e.target.value);
@@ -188,7 +192,8 @@ function MLAlgo() {
         Choose Alogorithm for Model Training
       </h3>
       <select
-        className="bg-blue-300 p-2 m-2 rounded"
+        className={` m-2 rounded p-2 hover:bg-slate-200 ${color === '#ED9ED6' && 'bg-pink-300'} ${color === '#87C4FF' && 'bg-blue-300'}
+        ${color === '#9ADE7B' && 'bg-green-300'} ${color === '#FFCF96' && 'bg-yellow-300'}`}
         value={selectAlgo || regression[0]}
         onChange={(e) => {
           setSelectedAlgorithm(e);
@@ -197,7 +202,8 @@ function MLAlgo() {
         {algoType === "regression" ? (
           <>
             {regression.map((algo, index) => (
-              <option className="bg-blue-500" key={index} value={algo}>
+              <option className={` p-2 hover:bg-slate-200 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
+              ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`} key={index} value={algo}>
                 {algo}
               </option>
             ))}
@@ -205,7 +211,8 @@ function MLAlgo() {
         ) : (
           <>
             {classification.map((algo, index) => (
-              <option className="bg-blue-500 p-2" key={index} value={algo}>
+              <option className={` p-2 hover:bg-slate-200 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
+              ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`} key={index} value={algo}>
                 {algo}
               </option>
             ))}
@@ -234,7 +241,8 @@ function MLAlgo() {
 
 
       <button
-        className="p-2 bg-blue-600 mx-2 rounded-sm my-5"
+        className={`p-2  mx-2 rounded-sm my-5 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
+        ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`}
         onClick={() => modelTrain()}
       >
         Model Train

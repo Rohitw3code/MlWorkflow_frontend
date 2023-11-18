@@ -1,5 +1,6 @@
 import "../css/MissingData.css";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import ThemeContext from "./ThemeContext";
 
 function MissingData({ triggerReloadDataTypeChange }) {
   const [data, setData] = useState({});
@@ -11,6 +12,7 @@ function MissingData({ triggerReloadDataTypeChange }) {
 
   // Update Dataset isna sum and dtypes
   const [updated_ds, setUpdatedDs] = useState({});
+  const color = useContext(ThemeContext);
 
   useEffect(() => {
     fetchData();
@@ -93,12 +95,13 @@ function MissingData({ triggerReloadDataTypeChange }) {
     <div className="section w-full flex justify-center flex-col">
       <div className="flex justify-center p-3 rounded-md">
         {Object.keys(data).map((key) => (
-          <div key={key} className=" rounded-md" style={{boxShadow: 'rgba(0,0,0,0.4) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px'}}>
-            <div className=" p-2" style={{ background : '#29ADB2'}}>
+          <div key={key} className={` ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-500'}
+          ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-500'}`} style={{boxShadow: 'rgba(0,0,0,0.4) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px'}}>
+            <div className=" p-2">
               {key}
               <br /> {dtypes[key]}
             </div>
-            <div className="p-1 font-semibold" style={{ background : '#E0F4FF',color : '#164863',fontFamily : 'Poppins'}}>{data[key]}</div>
+            <div className="p-1 font-semibold" style={{ background : '#FFF6F6',color : '#164863',fontFamily : 'Poppins'}}>{data[key]}</div>
           </div>
         ))}
       </div>
@@ -111,14 +114,16 @@ function MissingData({ triggerReloadDataTypeChange }) {
         style={{ fontFamily : 'Poppins' }}>
           Data Imputation and Deletion
         </div>
-        <div className="m-3 w-fit bg-blue-500 rounded-md">
+        <div className={`m-3 w-fit rounded-md ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
+          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}>
           {Object.keys(data).map(
             (key) =>
               data[key] !== 0 && (
                 <button
                   key={key}
                   className={` border-r p-4 ${
-                    clickedButton === key ? "bg-blue-600 rounded-l-md" : ""
+                    clickedButton === key && `${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
+                    ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`} rounded-l-md" : ""
                   }`}
                   onClick={() => handleButtonClick(key, dtypes[key])}
                 >
@@ -131,7 +136,7 @@ function MissingData({ triggerReloadDataTypeChange }) {
         {clickedButton && (
           <div>
           <div className=" w-fit mx-3 rounded-md flex flex-col justify-center items-center"
-          style={{ background : '#E0F4FF',color : '#164863',fontFamily : 'Poppins',}}>
+          style={{ background : '#FFF6F6',color : '#164863',fontFamily : 'Poppins',}}>
             <div className=" p-2 pb-4 border-b-2 border-gray-600 border-dashed">
             {btnDtype === "float64" && (
               <>
@@ -172,11 +177,13 @@ function MissingData({ triggerReloadDataTypeChange }) {
               remove (nan)
             </button>
            </div>
-           <div className=" flex bg-blue-600 rounded-md m-3">
+           <div className={`flex rounded-md m-3 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
+               ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`}>
             <input
               type="text"
               placeholder="replace"
-              className="bg-blue-800 text-gray-100 rounded-l-md outline-none border-none p-3"
+              className={` text-gray-100 rounded-l-md outline-none border-none p-3 flex rounded-md m-3 ${color === '#ED9ED6' && 'bg-pink-800'} ${color === '#87C4FF' && 'bg-blue-800'}
+               ${color === '#9ADE7B' && 'bg-green-800'} ${color === '#FFCF96' && 'bg-yellow-800'}`}
             />
             <button
               className=" text-slate-50 p-2 rounded"

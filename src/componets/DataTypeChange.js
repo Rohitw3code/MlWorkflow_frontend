@@ -1,5 +1,6 @@
 // import '../css/DataTypeChange.css'
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import ThemeContext from "./ThemeContext";
 
 function DataTypeChange({ reloadDataTypeChange }) {
   const [dtypes, setDtypes] = useState({});
@@ -10,6 +11,7 @@ function DataTypeChange({ reloadDataTypeChange }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const color = useContext(ThemeContext)
   const fetchData = async () => {
     try {
       const resp = await fetch(`http://127.0.0.1:5001/api/df/datatypechange`);
@@ -90,26 +92,27 @@ function DataTypeChange({ reloadDataTypeChange }) {
         </div>
         {Object.keys(dtypes).map((key) => (
           <div key={key}>
-            <div className="bg-slate-700 my-1 p-2 " style={{ background : '#29ADB2'}}>{key}</div>
-            <div className=" p-2" style={{ background : '#39A7FF'}}>
+            <div className={`my-1 p-2 flex gap-1 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
+            ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`}>{key}</div>
+            <div className=" p-2 bg-slate-50">
               <select
                 className="bg-inherit my-0 cursor-pointer"
                 value={columnDataTypes[key] || "default"}
                 onChange={(e) => handleDataTypeChange(key, e.target.value)}
               >
-                <option className="bg-blue-500" value="default" disabled>
+                <option className="bg-slate-100" value="default" disabled>
                   {dtypes[key]}
                 </option>
-                <option className="bg-blue-500 cursor-pointer" value="int">
+                <option className="bg-slate-100 cursor-pointer" value="int">
                   int
                 </option>
-                <option className="bg-blue-500 cursor-pointer" value="boolean">
+                <option className="bg-slate-100 cursor-pointer" value="boolean">
                   boolean
                 </option>
-                <option className="bg-blue-500 cursor-pointer" value="float">
+                <option className="bg-slate-100 cursor-pointer" value="float">
                   float
                 </option>
-                <option className="bg-blue-500 cursor-pointer" value="object">
+                <option className="bg-slate-100 cursor-pointer" value="object">
                   object
                 </option>
               </select>
