@@ -62,15 +62,15 @@ function TrainTestSplit() {
 
   return (
     <>
-      <h4 className="text-lg text-white mx-2 my-3 font-semibold">
+      <h4 className="text-lg mx-2 my-3 font-semibold"  style={{fontFamily : 'ClashGrotesk'}}>
         Train Test Split
       </h4>
       {!success && message}
       <div className="train-test-split-field-tts ">
         <div className="mx-5">
-          <h3 className="text-white">Random State</h3>
+          <h3 className=""  style={{fontFamily : 'ClashGrotesk'}}>Random State</h3>
           <input
-            className="w-20 h-10 bg-slate-700 text-white p-1 rounded-xl my-5"
+            className="w-20 h-10 bg-blue-600 text-white p-1 rounded-xl my-5"
             placeholder="random state"
             type="number"
             value={randomstate}
@@ -79,9 +79,9 @@ function TrainTestSplit() {
         </div>
 
         <div className="mx-10">
-          <h3 className="text-white">Train Size</h3>
+          <h3 className=""  style={{fontFamily : 'ClashGrotesk'}}>Train Size</h3>
           <input
-            className="w-20 h-10 bg-slate-700 text-white p-1 rounded-xl mx-3 my-5"
+            className="w-20 h-10 bg-blue-600 text-white p-1 rounded-xl mx-3 my-5"
             placeholder="train-size %"
             type="number"
             value={trainsize}
@@ -93,16 +93,16 @@ function TrainTestSplit() {
       <div className="shuffle-tts">
         <label className="font-semibold">Shuffle</label>
         <select
-          className="bg-slate-800 p-2 rounded-md mx-3"
+          className="bg-blue-600 p-2 rounded-md mx-3"
           value={shuffle || true}
           onChange={(e) => handleShuffle(e.target.value)}
         >
-          <option className="bg-slate-900" value="true">true</option>
-          <option className="bg-slate-900" value="false">false</option>
+          <option className="bg-blue-600" value="true">true</option>
+          <option className="bg-blue-600" value="false">false</option>
         </select>
 
         <button
-          className="p-2 w-20 bg-rose-700 rounded-xl"
+          className="p-2 w-20 bg-blue-600 rounded-xl"
           onClick={() => {
             splitDf();
           }}

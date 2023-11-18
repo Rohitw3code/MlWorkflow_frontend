@@ -78,39 +78,38 @@ function DataTypeChange({ reloadDataTypeChange }) {
 
   return (
     <>
-      <h3 className="text-2xl text-white p-5 font-semibold">
+      <h3 className="text-3xl p-5 font-semibold" style={{fontFamily : 'ClashGrotesk'}}>
         Data type casting
       </h3>
       <div className="flex mx-5">
         <div>
-          <div className="bg-slate-700 p-2 mx-1 my-1 rounded-sm">Columns</div>
-          <div className="bg-slate-700 p-2 mx-1 my-1 rounded-sm">
+          <div className="bg-black text-white rounded-md p-2 mx-1 my-1">Columns</div>
+          <div className="bg-black text-white p-2 mx-1 my-1 rounded-md">
             Data Types
           </div>
         </div>
         {Object.keys(dtypes).map((key) => (
           <div key={key}>
-            <div className="bg-slate-700 my-1 p-2 ">{key}</div>
-            <br />
-            <div>
+            <div className="bg-slate-700 my-1 p-2 " style={{ background : '#29ADB2'}}>{key}</div>
+            <div className=" p-2" style={{ background : '#39A7FF'}}>
               <select
-                className="bg-inherit my-0"
+                className="bg-inherit my-0 cursor-pointer"
                 value={columnDataTypes[key] || "default"}
                 onChange={(e) => handleDataTypeChange(key, e.target.value)}
               >
-                <option className="bg-slate-900 " value="default" disabled>
+                <option className="bg-blue-500" value="default" disabled>
                   {dtypes[key]}
                 </option>
-                <option className="bg-slate-900 " value="int">
+                <option className="bg-blue-500 cursor-pointer" value="int">
                   int
                 </option>
-                <option className="bg-slate-900 " value="boolean">
+                <option className="bg-blue-500 cursor-pointer" value="boolean">
                   boolean
                 </option>
-                <option className="bg-slate-900 " value="float">
+                <option className="bg-blue-500 cursor-pointer" value="float">
                   float
                 </option>
-                <option className="bg-slate-900 " value="object">
+                <option className="bg-blue-500 cursor-pointer" value="object">
                   object
                 </option>
               </select>
@@ -118,7 +117,7 @@ function DataTypeChange({ reloadDataTypeChange }) {
           </div>
         ))}
       </div>
-      <h4 className="text-red-300 mx-5 py-5 font-medium">
+      <h4 className="text-blue-900 mx-5 py-5 font-medium" style={{ fontFamily : 'Poppins'}}>
         {!isSuccessful ? `${key} can not be casted to ${dtype}` : null}
       </h4>{" "}
     </>

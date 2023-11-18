@@ -90,33 +90,35 @@ function MissingData({ triggerReloadDataTypeChange }) {
   };
 
   return (
-    <div className="section">
-      <div className="flex p-3 rounded-md">
+    <div className="section w-full flex justify-center flex-col">
+      <div className="flex justify-center p-3 rounded-md">
         {Object.keys(data).map((key) => (
-          <div key={key}>
-            <div className="bg-blue-900 p-2">
+          <div key={key} className=" rounded-md" style={{boxShadow: 'rgba(0,0,0,0.4) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px'}}>
+            <div className=" p-2" style={{ background : '#29ADB2'}}>
               {key}
               <br /> {dtypes[key]}
             </div>
-            <div className="bg-blue-950 p-1">{data[key]}</div>
+            <div className="p-1 font-semibold" style={{ background : '#E0F4FF',color : '#164863',fontFamily : 'Poppins'}}>{data[key]}</div>
           </div>
         ))}
       </div>
-      <div>
-        <div className="text-2xl text-white px-3 font-semibold">
+      <div className=" t-4">
+        <div className="text-3xl  px-3 font-semibold"
+        style={{ fontFamily : 'ClashGrotesk' }}>
           Fix the missing data
         </div>
-        <div className="text-sm text-white px-3 my-3 font-semibold">
+        <div className="text-lg px-3 my-3 font-medium"
+        style={{ fontFamily : 'Poppins' }}>
           Data Imputation and Deletion
         </div>
-        <div className="m-3">
+        <div className="m-3 w-fit bg-blue-500 rounded-md">
           {Object.keys(data).map(
             (key) =>
               data[key] !== 0 && (
                 <button
                   key={key}
-                  className={`bg-slate-800 p-2 ${
-                    clickedButton === key ? "bg-red-500" : ""
+                  className={` border-r p-4 ${
+                    clickedButton === key ? "bg-blue-600 rounded-l-md" : ""
                   }`}
                   onClick={() => handleButtonClick(key, dtypes[key])}
                 >
@@ -127,17 +129,20 @@ function MissingData({ triggerReloadDataTypeChange }) {
         </div>
 
         {clickedButton && (
-          <div className="mx-3">
+          <div>
+          <div className=" w-fit mx-3 rounded-md flex flex-col justify-center items-center"
+          style={{ background : '#E0F4FF',color : '#164863',fontFamily : 'Poppins',}}>
+            <div className=" p-2 pb-4 border-b-2 border-gray-600 border-dashed">
             {btnDtype === "float64" && (
               <>
                 <button
-                  className="bg-slate-800 p-2 mx-1 rounded-lg hover:bg-slate-700"
+                  className="p-2 mx-1 rounded-lg hover:bg-gray-200 bg-slate-300"
                   onClick={() => handleMissingData(clickedButton, "mean")}
                 >
                   mean
                 </button>
                 <button
-                  className="bg-slate-800 p-2 mx-1 rounded-lg hover:bg-slate-700"
+                  className="p-2 mx-1 rounded-lg hover:bg-gray-200 bg-slate-300"
                   onClick={() => handleMissingData(clickedButton, "median")}
                 >
                   median
@@ -147,7 +152,7 @@ function MissingData({ triggerReloadDataTypeChange }) {
             {btnDtype === "object" && (
               <>
                 <button
-                  className="bg-slate-800 p-2 mx-1 rounded-lg hover:bg-slate-700"
+                  className="p-2 mx-1 rounded-lg hover:bg-gray-200 bg-slate-300"
                   onClick={() => handleMissingData(clickedButton, "mode")}
                 >
                   mode
@@ -155,25 +160,26 @@ function MissingData({ triggerReloadDataTypeChange }) {
               </>
             )}
             <button
-              className="bg-slate-800 p-2 mx-1 rounded-lg hover:bg-slate-700"
+              className="p-2 mx-1 rounded-lg hover:bg-gray-200 bg-slate-300"
               onClick={() => handleMissingData(clickedButton, "delete")}
             >
               delete (column)
             </button>
             <button
-              className="bg-slate-800 p-2 mx-1 rounded-lg hover:bg-slate-700"
+              className="p-2 mx-1 rounded-lg hover:bg-gray-200 bg-slate-300"
               onClick={() => handleMissingData(clickedButton, "remove")}
             >
               remove (nan)
             </button>
-
+           </div>
+           <div className=" flex bg-blue-600 rounded-md m-3">
             <input
               type="text"
               placeholder="replace"
-              className="bg-slate-800 p-2 my-1"
+              className="bg-blue-800 text-gray-100 rounded-l-md outline-none border-none p-3"
             />
             <button
-              className="bg-slate-800 p-2 rounded hover:bg-slate-700"
+              className=" text-slate-50 p-2 rounded"
               onClick={() => {
                 const inputValue =
                   document.querySelector(".replace-input").value; // Get the input value
@@ -182,6 +188,8 @@ function MissingData({ triggerReloadDataTypeChange }) {
             >
               replace
             </button>
+            </div>
+            </div>
           </div>
         )}
       </div>

@@ -87,7 +87,7 @@ function SelectFeatureTarget() {
 
   return (
     <div>
-      <h2 className="text-lg text-white mx-2 my-3 font-semibold">Features:</h2>
+      <h2 className="  mx-2 my-3 font-semibold border-t-2 border-b-2 border-blue-500 p-4 text-3xl" style={{fontFamily : 'ClashGrotesk'}}>Features</h2>
       {columns.map((column, index) => (
         <>
           {column === targetfeature ? (
@@ -95,10 +95,10 @@ function SelectFeatureTarget() {
           ) : (
             <>
               <button
-                className={`p-2 m-1 rounded-sm hover:bg-teal-700 ${
+                className={`p-2 m-1 rounded-sm hover:bg-blue-600 ${
                   selectedFeatures.includes(column)
-                    ? "bg-red-600"
-                    : "bg-violet-900"
+                    ? "bg-blue-600"
+                    : "bg-blue-500"
                 }`}
                 onClick={() => {
                   addinfeature(column);
@@ -111,11 +111,11 @@ function SelectFeatureTarget() {
         </>
       ))}
 
-      <h2 className="text-lg text-white mx-2 my-3 font-semibold ">Target:</h2>
+      <h2 className="text-xl mx-2 my-3 font-semibold " style={{fontFamily : 'ClashGrotesk'}}>Target:</h2>
       {columns.map((column, index) => (
         <button
-          className={`p-2 m-1 rounded-sm hover:bg-teal-700 ${
-            targetfeature === column ? "bg-red-600" : "bg-violet-900"
+          className={`p-2 m-1 rounded-sm hover:bg-blue-700 ${
+            targetfeature === column ? "bg-blue-700" : "bg-blue-500"
           }`}
           onClick={() => {
             setTarget(column);
@@ -127,7 +127,7 @@ function SelectFeatureTarget() {
       ))}
       {update && (
         <>
-          <h3 className="text-lg text-white mx-3 my-3 font-semibold">
+          <h3 className="text-lg mx-3 my-3 font-semibold" style={{fontFamily : 'ClashGrotesk'}}>
             {targetfeature}
           </h3>
         </>
@@ -140,7 +140,7 @@ function SelectFeatureTarget() {
               ""
             ) : (
               <>
-                <div className="text-green-500 font-mono mx-2">
+                <div className="text-blue-700 font-mono mx-2">
                   Train Feature (X)
                 </div>
                 <Dataframe rows={3} cols={selectedFeatures} />
@@ -152,7 +152,7 @@ function SelectFeatureTarget() {
               ""
             ) : (
               <>
-                <div className="text-red-500 font-mono">Target (Y)</div>
+                <div className="text-blue-900 font-mono">Target (Y)</div>
                 <Dataframe rows={3} cols={[targetfeature]} />
               </>
             )}

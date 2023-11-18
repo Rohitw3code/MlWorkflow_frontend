@@ -163,23 +163,23 @@ function MLAlgo() {
 
   return (
     <>
-    <div className="bg-slate-950 p-5 rounded-sm">
+    <div className="bg-blue-600 p-5 rounded-md mr-3">
 
       <h3 className="text-lg text-white mx-2 my-3 font-semibold">
         Choose the ML Alogorithm for the ML training
       </h3>
       <h3 className="text-lg text-white mx-2 my-3 font-semibold">Model Type</h3>
       <select
-        className="bg-slate-800 p-2 m-2"
+        className="bg-blue-300 rounded p-2 m-2"
         value={algoType || "regression"}
         onChange={(e) => {
           setAlgoType(e.target.value);
         }}
       >
-        <option className="bg-slate-900" value="regression">
+        <option className="bg-blue-600" value="regression">
           Regression
         </option>
-        <option className="bg-slate-900" value="classification">
+        <option className="bg-blue-600" value="classification">
           Classification
         </option>
       </select>
@@ -188,7 +188,7 @@ function MLAlgo() {
         Choose Alogorithm for Model Training
       </h3>
       <select
-        className="bg-slate-800 p-2 m-2"
+        className="bg-blue-300 p-2 m-2 rounded"
         value={selectAlgo || regression[0]}
         onChange={(e) => {
           setSelectedAlgorithm(e);
@@ -197,7 +197,7 @@ function MLAlgo() {
         {algoType === "regression" ? (
           <>
             {regression.map((algo, index) => (
-              <option className="bg-slate-900" key={index} value={algo}>
+              <option className="bg-blue-500" key={index} value={algo}>
                 {algo}
               </option>
             ))}
@@ -205,7 +205,7 @@ function MLAlgo() {
         ) : (
           <>
             {classification.map((algo, index) => (
-              <option className="bg-slate-900" key={index} value={algo}>
+              <option className="bg-blue-500 p-2" key={index} value={algo}>
                 {algo}
               </option>
             ))}
@@ -220,7 +220,7 @@ function MLAlgo() {
               <div className="p-1" key={index}>
                 <div>{snakeToCamel(item)}</div>
                 <input
-                  className="w-20 h-7 bg-slate-800 text-white p-1 rounded-lg"
+                  className="w-20 h-7 bg-blue-600 text-white p-1 rounded-lg"
                   placeholder={snakeToCamel(item)}
                   value={params[item]}
                 />
@@ -234,7 +234,7 @@ function MLAlgo() {
 
 
       <button
-        className="p-2 bg-slate-800 mx-2 rounded-sm my-5"
+        className="p-2 bg-blue-600 mx-2 rounded-sm my-5"
         onClick={() => modelTrain()}
       >
         Model Train

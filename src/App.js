@@ -11,7 +11,7 @@ import MLAlgo from "./componets/MLAlog";
 import Welcome from "./componets/Welcome";
 
 function App() {
-  const [userInput, setUserInput] = useState(1);
+  const [userInput, setUserInput] = useState(5);
   const [cols, setCols] = useState([]);
   const [sectionBVisible, setSectionBVisible] = useState(false);
   const [reloadDataTypeChange, setReloadDataTypeChange] = useState(false);
@@ -63,31 +63,45 @@ function App() {
 </>
     ):(
 <>
-<div className="bg-slate-900 text-white">
-  <h1 className="p-10 flex items-center justify-center text-4xl">MLQuickFlow</h1>
-      <h1 className="text-2xl text-white p-5 font-semibold">
+<div className="" style={{ background : '#87C4FF'}}>
+  <div className=" text-center mb-8">
+  <h1 className=" flex items-center justify-center" style={{ fontFamily : 'Goza',fontSize : 'clamp(5vw,4rem,2vw)',color : '#0766AD'}}>MLQuickFlow</h1>
+  </div>
+  <div>
+      <h1 className="text-2xl  p-5 font-semibold border-t-2 border-b-2 border-blue-500"
+      style={{ fontFamily : 'ClashGrotesk', fontSize : 'clamp(3vw,1.5rem,1.5vw)',}}>
         Data Preprocessing
       </h1>
 
-      <div className="m-5">
-        <div className="m-3 text-white">
+      <div className=" w-full flex flex-col items-center justify-center">
+      <div className="m-5" style={{
+         fontFamily : 'Poppins'
+      }}>
+        <div className="m-3">
+          <div className=" w-fit p-2 bg-blue-600 rounded-lg text-blue-300 uppercase  font-semibold text-xl">
           Display{" "}
           <input
-            className="w-20 p-2 border-2 mx-2 bg-blue-900 border-sky-600 h-8 rounded-lg"
+            className=" lg:w-60 outline-none p-6 border-2 mx-2 text-blue-800 border-blue-600 shadow-2xl shadow-blue-500 h-8 rounded-lg bg-blue-300"
             placeholder="Enter number of rows"
             type="number"
             value={userInput}
+            min={5}
             onChange={handleInputChange}
           />
           rows
+          </div>
         </div>
         <Dataframe rows={userInput} cols={[]} shapeDisplay="true" />
       </div>
+      </div>
+      </div>
 
-      <div className="section B">
-        <button className="text-2xl text-white p-5 font-semibold" onClick={sectionBVisibleFun}>
+      <div className="section B top-8">
+        <h1 className="text-2xl p-5 font-semibold border-t-2 border-b-2 border-blue-500"
+        style={{ fontFamily : 'ClashGrotesk', fontSize : 'clamp(3vw,1.5rem,1.5vw)',}} 
+        onClick={sectionBVisibleFun}>
           Missing Value
-        </button>
+        </h1>
         <MissingData
           triggerReloadDataTypeChange={triggerReloadDataTypeChange}
         />
@@ -98,9 +112,11 @@ function App() {
       </div>
 
       <div className="section D">
-        <button className="text-2xl text-white p-5 font-semibold" onClick={sectionBVisibleFun}>
+        <h1 className="text-2xl p-5 font-semibold border-t-2 border-b-2 border-blue-500"
+        style={{ fontFamily : 'ClashGrotesk', fontSize : 'clamp(3vw,1.5rem,1.5vw)',}}
+         onClick={sectionBVisibleFun}>
           Data Encoding
-        </button>
+        </h1>
         <DataEncoding />
       </div>
 
