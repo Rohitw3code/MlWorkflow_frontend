@@ -1,11 +1,13 @@
 import '../css/DfUniqueData.css'
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import ThemeContext from './ThemeContext';
 
 function DfUniqueData() {
     const [data, setData] = useState({});
     const [shape, setShape] = useState({});
     const [loading, setLoading] = useState(true); 
-    const [error, setError] = useState(null); 
+    const [error, setError] = useState(null);
+    const color = useContext(ThemeContext) 
     useEffect(() => {
         fetchData();
     }, []);
@@ -37,7 +39,8 @@ function DfUniqueData() {
             <div className="flex mx-5" style={{ fontFamily : 'Poppins'}}>
                 {Object.keys(data).map((key) => (
                     <div key={key}>
-                        <div className="text-white p-2" style={{ background : '#29ADB2'}}>{key}</div>
+                        <div className={`text-white p-2 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
+              ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`}>{key}</div>
                         <div className="text-white bg-slate-800 p-2"
                         style={{ background : '#E0F4FF',color : '#164863',fontFamily : 'Poppins',}}>{data[key]}</div>
                     </div>

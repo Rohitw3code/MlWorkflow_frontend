@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../css/TrainTestSplit.css";
+import ThemeContext from "./ThemeContext";
 
 function TrainTestSplit() {
   const [randomstate, setRandomState] = useState(42);
@@ -9,6 +10,7 @@ function TrainTestSplit() {
   const [trainsize, setTrainSize] = useState(80);
   const [trainshape, setTrainShape] = useState([]);
   const [testshape, setTestShape] = useState([]);
+  const color = useContext(ThemeContext)
 
   const splitDf = async () => {
     const url = "http://127.0.0.1:5001/api/train-test-split";
@@ -70,7 +72,8 @@ function TrainTestSplit() {
         <div className="mx-5">
           <h3 className=""  style={{fontFamily : 'ClashGrotesk'}}>Random State</h3>
           <input
-            className="w-20 h-10 bg-blue-600 text-white p-1 rounded-xl my-5"
+            className={`w-20 h-10 text-white p-1 rounded-xl my-5  ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
+            ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}
             placeholder="random state"
             type="number"
             value={randomstate}
@@ -81,7 +84,8 @@ function TrainTestSplit() {
         <div className="mx-10">
           <h3 className=""  style={{fontFamily : 'ClashGrotesk'}}>Train Size</h3>
           <input
-            className="w-20 h-10 bg-blue-600 text-white p-1 rounded-xl mx-3 my-5"
+            className={`w-20 h-10 text-white p-1 rounded-xl mx-3 my-5  ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
+            ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}
             placeholder="train-size %"
             type="number"
             value={trainsize}
@@ -93,16 +97,18 @@ function TrainTestSplit() {
       <div className="shuffle-tts">
         <label className="font-semibold">Shuffle</label>
         <select
-          className="bg-blue-600 p-2 rounded-md mx-3"
+          className={` p-2 rounded-md mx-3  ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
+          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}
           value={shuffle || true}
           onChange={(e) => handleShuffle(e.target.value)}
         >
-          <option className="bg-blue-600" value="true">true</option>
-          <option className="bg-blue-600" value="false">false</option>
+          <option className="bg-white" value="true">true</option>
+          <option className="bg-white" value="false">false</option>
         </select>
 
         <button
-          className="p-2 w-20 bg-blue-600 rounded-xl"
+          className={`p-2 w-20  rounded-xl  ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
+          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}
           onClick={() => {
             splitDf();
           }}

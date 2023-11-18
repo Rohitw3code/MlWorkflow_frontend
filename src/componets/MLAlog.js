@@ -168,10 +168,10 @@ function MLAlgo() {
     <div className={` p-5 rounded-md mr-3 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
                ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`}>
 
-      <h3 className="text-lg text-white mx-2 my-3 font-semibold">
+      <h3 className="text-lg mx-2 text-white my-3 font-semibold" style={{fontFamily : 'ClashGrotesk'}}>
         Choose the ML Alogorithm for the ML training
       </h3>
-      <h3 className="text-lg text-white mx-2 my-3 font-semibold">Model Type</h3>
+      <h3 className="text-lg text-white mx-2 my-3 font-semibold" style={{ fontFamily : 'Poppins'}}>Model Type</h3>
       <select
         className={` m-2 rounded p-2 hover:bg-slate-200 ${color === '#ED9ED6' && 'bg-pink-300'} ${color === '#87C4FF' && 'bg-blue-300'}
         ${color === '#9ADE7B' && 'bg-green-300'} ${color === '#FFCF96' && 'bg-yellow-300'}`}
@@ -188,7 +188,8 @@ function MLAlgo() {
         </option>
       </select>
 
-      <h3 className="text-lg text-white mx-2 my-3 font-semibold">
+      <h3 className="text-lg text-white mx-2 my-3 font-semibold"
+      style={{ fontFamily : 'Poppins'}}>
         Choose Alogorithm for Model Training
       </h3>
       <select
@@ -225,10 +226,12 @@ function MLAlgo() {
           <div className="block columns-4 mx-2">
             {paramsKey.map((item, index) => (
               <div className="p-1" key={index}>
-                <div>{snakeToCamel(item)}</div>
+                <div className=" text-white">{snakeToCamel(item)}</div>
                 <input
-                  className="w-20 h-7 bg-blue-600 text-white p-1 rounded-lg"
+                  className={`p-4 h-7  rounded-lg ${color === '#ED9ED6' && 'bg-pink-300'} ${color === '#87C4FF' && 'bg-blue-300'}
+                  ${color === '#9ADE7B' && 'bg-green-300'} ${color === '#FFCF96' && 'bg-yellow-300'}`}
                   placeholder={snakeToCamel(item)}
+                  style={{ fontFamily : 'Poppins'}}
                   value={params[item]}
                 />
               </div>
