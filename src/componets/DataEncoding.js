@@ -145,7 +145,8 @@ function DataEncoding() {
         {columns.map((item, index) => (
           <button
             className={` m-1 rounded-sm p-2 hover:bg-white ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
-            ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}
+            ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-pink-500'}
+            ${color === 'gradient--black' && 'bg-slate-700 hover:text-black'}`}
             key={index}
             onClick={() => {
               fetchColumnData(item);
@@ -184,7 +185,8 @@ function DataEncoding() {
             <>
               <button
                 className={` rounded-md mx-3 my-3 p-3 ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
-                ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}
+                ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-pink-600'}
+                ${color === 'gradient--black' && 'bg-slate-700'}`}
                 onClick={() => {
                   encodeDF();
                 }}

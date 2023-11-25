@@ -93,26 +93,27 @@ function DataTypeChange({ reloadDataTypeChange }) {
         {Object.keys(dtypes).map((key) => (
           <div key={key}>
             <div className={`my-1 p-2 flex gap-1 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
-            ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`}>{key}</div>
-            <div className=" p-2 bg-slate-50">
+            ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'} ${color === 'gradient--pink' && 'bg-purple-500'}
+            ${color === 'gradient--black' && 'bg-slate-700'}`}>{key}</div>
+            <div className=" p-2 bg-slate-50 text-black">
               <select
                 className="bg-inherit my-0 cursor-pointer"
                 value={columnDataTypes[key] || "default"}
                 onChange={(e) => handleDataTypeChange(key, e.target.value)}
               >
-                <option className="bg-slate-100" value="default" disabled>
+                <option className="bg-slate-100 text-black" value="default" disabled>
                   {dtypes[key]}
                 </option>
-                <option className="bg-slate-100 cursor-pointer" value="int">
+                <option className="bg-slate-100 text-black cursor-pointer" value="int">
                   int
                 </option>
-                <option className="bg-slate-100 cursor-pointer" value="boolean">
+                <option className="bg-slate-100 text-black cursor-pointer" value="boolean">
                   boolean
                 </option>
-                <option className="bg-slate-100 cursor-pointer" value="float">
+                <option className="bg-slate-100 text-black cursor-pointer" value="float">
                   float
                 </option>
-                <option className="bg-slate-100 cursor-pointer" value="object">
+                <option className="bg-slate-100 text-black cursor-pointer" value="object">
                   object
                 </option>
               </select>

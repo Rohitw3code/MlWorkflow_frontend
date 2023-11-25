@@ -73,7 +73,8 @@ function TrainTestSplit() {
           <h3 className=""  style={{fontFamily : 'ClashGrotesk'}}>Random State</h3>
           <input
             className={`w-20 h-10 text-white p-1 rounded-xl my-5  ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
-            ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}
+            ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-pink-500'}
+            ${color === 'gradient--black' && 'bg-slate-600'}`}
             placeholder="random state"
             type="number"
             value={randomstate}
@@ -85,7 +86,8 @@ function TrainTestSplit() {
           <h3 className=""  style={{fontFamily : 'ClashGrotesk'}}>Train Size</h3>
           <input
             className={`w-20 h-10 text-white p-1 rounded-xl mx-3 my-5  ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
-            ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}
+            ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-purple-500'}
+            ${color === 'gradient--black' && 'bg-slate-600'}`}
             placeholder="train-size %"
             type="number"
             value={trainsize}
@@ -98,7 +100,8 @@ function TrainTestSplit() {
         <label className="font-semibold">Shuffle</label>
         <select
           className={` p-2 rounded-md mx-3  ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
-          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}
+          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-pink-500'}
+          ${color === 'gradient--black' && 'bg-slate-600'}`}
           value={shuffle || true}
           onChange={(e) => handleShuffle(e.target.value)}
         >
@@ -107,8 +110,9 @@ function TrainTestSplit() {
         </select>
 
         <button
-          className={`p-2 w-20  rounded-xl  ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
-          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}`}
+          className={`p-2 w-20  rounded-xl uppercase  ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
+          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-pink-700 text-white'}
+          ${color === 'gradient--black' && 'bg-slate-600'}`}
           onClick={() => {
             splitDf();
           }}

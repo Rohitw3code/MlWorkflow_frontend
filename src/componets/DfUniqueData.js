@@ -40,7 +40,8 @@ function DfUniqueData() {
                 {Object.keys(data).map((key) => (
                     <div key={key}>
                         <div className={`text-white p-2 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
-              ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`}>{key}</div>
+              ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'} ${color === 'gradient--pink' && 'bg-purple-500'}
+              ${color === 'gradient--black' && 'bg-slate-700'}`}>{key}</div>
                         <div className="text-white bg-slate-800 p-2"
                         style={{ background : '#E0F4FF',color : '#164863',fontFamily : 'Poppins',}}>{data[key]}</div>
                     </div>

@@ -165,16 +165,17 @@ function MLAlgo() {
 
   return (
     <>
-    <div className={` p-5 rounded-md mr-3 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
-               ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`}>
+    <div className={` p-5 rounded-md mr-3 ${color === '#ED9ED6' && 'bg-pink-600 text-white'} ${color === '#87C4FF' && 'bg-blue-600 text-white'}
+               ${color === '#9ADE7B' && 'bg-green-600 text-white'} ${color === '#FFCF96' && 'bg-yellow-600 text-white'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 text-black custom--bg--pink'}
+               ${color === 'gradient--black' && 'bg-slate-700'}`}>
 
-      <h3 className="text-lg mx-2 text-white my-3 font-semibold" style={{fontFamily : 'ClashGrotesk'}}>
+      <h3 className="text-lg mx-2  my-3 font-semibold" style={{fontFamily : 'ClashGrotesk'}}>
         Choose the ML Alogorithm for the ML training
       </h3>
-      <h3 className="text-lg text-white mx-2 my-3 font-semibold" style={{ fontFamily : 'Poppins'}}>Model Type</h3>
+      <h3 className="text-lg  mx-2 my-3 font-semibold" style={{ fontFamily : 'Poppins'}}>Model Type</h3>
       <select
         className={` m-2 rounded p-2 hover:bg-slate-200 ${color === '#ED9ED6' && 'bg-pink-300'} ${color === '#87C4FF' && 'bg-blue-300'}
-        ${color === '#9ADE7B' && 'bg-green-300'} ${color === '#FFCF96' && 'bg-yellow-300'}`}
+        ${color === '#9ADE7B' && 'bg-green-300'} ${color === '#FFCF96' && 'bg-yellow-300'} ${color === 'gradient--black' && 'bg-slate-800'}`}
         value={algoType || "regression"}
         onChange={(e) => {
           setAlgoType(e.target.value);
@@ -188,13 +189,13 @@ function MLAlgo() {
         </option>
       </select>
 
-      <h3 className="text-lg text-white mx-2 my-3 font-semibold"
+      <h3 className="text-lg  mx-2 my-3 font-semibold"
       style={{ fontFamily : 'Poppins'}}>
         Choose Alogorithm for Model Training
       </h3>
       <select
         className={` m-2 rounded p-2 hover:bg-slate-200 ${color === '#ED9ED6' && 'bg-pink-300'} ${color === '#87C4FF' && 'bg-blue-300'}
-        ${color === '#9ADE7B' && 'bg-green-300'} ${color === '#FFCF96' && 'bg-yellow-300'}`}
+        ${color === '#9ADE7B' && 'bg-green-300'} ${color === '#FFCF96' && 'bg-yellow-300'} ${color === 'gradient--black' && 'bg-slate-800'}`}
         value={selectAlgo || regression[0]}
         onChange={(e) => {
           setSelectedAlgorithm(e);
@@ -204,7 +205,7 @@ function MLAlgo() {
           <>
             {regression.map((algo, index) => (
               <option className={` p-2 hover:bg-slate-200 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
-              ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`} key={index} value={algo}>
+              ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'} ${color === 'gradient--black' && 'bg-slate-600'}`} key={index} value={algo}>
                 {algo}
               </option>
             ))}
@@ -213,7 +214,7 @@ function MLAlgo() {
           <>
             {classification.map((algo, index) => (
               <option className={` p-2 hover:bg-slate-200 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
-              ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`} key={index} value={algo}>
+              ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'} ${color === 'gradient--black' && 'bg-slate-800'}`} key={index} value={algo}>
                 {algo}
               </option>
             ))}
@@ -245,7 +246,8 @@ function MLAlgo() {
 
       <button
         className={`p-2  mx-2 rounded-sm my-5 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
-        ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'}`}
+        ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'} ${color === 'gradient--pink' && 'bg-pink-600'}
+        ${color === 'gradient--black' && 'bg-slate-600'}`}
         onClick={() => modelTrain()}
       >
         Model Train
