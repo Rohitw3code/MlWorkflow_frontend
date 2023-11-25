@@ -55,7 +55,7 @@ function Dataframe(props) {
     <div className="p-2" style={{ fontFamily : 'ClashGrotesk' }}>
       {props.shapeDisplay ? (
         <>
-        <div className="w-5/6 flex justify-around">
+        <div className=" w-full md:w-5/6 flex md:justify-around flex-col md:flex-row justify-center">
         <div className="flex justify-center">
           <div className={`border border-gray-300 uppercase p-2 rounded my-3 mx-1 flex gap-3
           ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
@@ -81,8 +81,8 @@ function Dataframe(props) {
         </div>
         <div>
         {props.shapeDisplay ? (
-          <div className="flex">
-            <div className="text-white p-2 rounded my-3 font-mono bg-cyan-900">
+          <div className="flex justify-center md:justify-normal">
+            <div className="text-white p-2 rounded my-3 font-mono bg-black/80">
               Current Shape {props.rows} x {shape[1]}
             </div>
           </div>
@@ -91,8 +91,8 @@ function Dataframe(props) {
         </div>
         </>
       ) : null}
-      <div className=" flex justify-center">
-      <div className="w-5/6 max-h-96 overflow-auto rounded-md"
+      <div className=" flex justify-center w-full overflow-auto">
+      <div className=" w-2/5 md:w-5/6 max-h-96 overflow-auto rounded-md"
       style={{boxShadow: 'rgba(0,0,0,0.2) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px'}}>
       <table className={` w-full ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}`}>
         <thead>
@@ -127,7 +127,7 @@ function Dataframe(props) {
                     <td
                       colSpan={1}
                       style={{color : '#164863',fontFamily : 'Poppins',}}
-                      className={`p-2 text-center font-semibold border-0 `}
+                      className={`p-2 text-xs md:text-base text-center font-semibold border-0 `}
                       key={idx}
                     >
                       {values[index]}

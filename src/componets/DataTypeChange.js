@@ -83,11 +83,11 @@ function DataTypeChange({ reloadDataTypeChange }) {
       <h3 className="text-3xl p-5 font-semibold" style={{fontFamily : 'ClashGrotesk'}}>
         Data type casting
       </h3>
-      <div className="flex mx-5">
+      <div className="flex mx-5 overflow-auto">
         <div>
-          <div className="bg-black text-white rounded-md p-2 mx-1 my-1">Columns</div>
+          <div className="bg-black text-white rounded-md p-2 px-4 mx-1 my-1">Columns</div>
           <div className="bg-black text-white p-2 mx-1 my-1 rounded-md">
-            Data Types
+            Data Type
           </div>
         </div>
         {Object.keys(dtypes).map((key) => (

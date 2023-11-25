@@ -92,22 +92,24 @@ function MissingData({ triggerReloadDataTypeChange }) {
   };
 
   return (
-    <div className="section w-full flex justify-center flex-col">
-      <div className="flex justify-center p-3 rounded-md">
+    <div className="w-full flex flex-col">
+      <div className=" w-full h-full overflow-auto p-3 m-1">
+      <div className=" flex justify-center m-1 rounded-md wrap">
         {Object.keys(data).map((key) => (
-          <div key={key} className={` ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-500'}
+          <div key={key} className={` text-center ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-500'}
           ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-pink-600'}
           ${color === 'gradient--black' && 'bg-slate-700'}`} style={{boxShadow: 'rgba(0,0,0,0.4) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px'}}>
-            <div className=" p-2">
+            <div className=" p-2 text-center">
               {key}
-              <br /> {dtypes[key]}
+              <br /> ({dtypes[key]})
             </div>
             <div className="p-1 font-semibold" style={{ background : '#FFF6F6',color : '#164863',fontFamily : 'Poppins'}}>{data[key]}</div>
           </div>
         ))}
       </div>
+      </div>
       <div className=" t-4">
-        <div className="text-3xl  px-3 font-semibold"
+        <div className="text-3xl mt-4  px-3 font-semibold"
         style={{ fontFamily : 'ClashGrotesk' }}>
           Fix the missing data
         </div>
@@ -142,7 +144,7 @@ function MissingData({ triggerReloadDataTypeChange }) {
             {btnDtype === "float64" && (
               <>
                 <button
-                  className={`p-2 mx-1 rounded-lg hover:bg-gray-200 ${color.startsWith('#') ? 'bg-slate-300' : null} ${color === 'gradient--pink' && 'bg-pink-600 text-white'} 
+                  className={`p-2 mx-1 rounded-lg ${color.startsWith('#') ? 'bg-slate-300 hover:bg-gray-200' : null} ${color === 'gradient--pink' && 'bg-pink-600 text-white hover:bg-pink-700'} 
                   ${color === 'gradient--black' && 'bg-slate-800 text-white'}`}
                   onClick={() => handleMissingData(clickedButton, "mean")}
                 >
@@ -209,7 +211,7 @@ function MissingData({ triggerReloadDataTypeChange }) {
       </div>
       {updated_ds.updated && (
         <>
-          <div className="flex m-5">
+          <div className="flex m-5 overflow-auto">
             {Object.keys(updated_ds.data).map((key) => (
               <div key={key} className="table-row">
                 <div className={`${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}

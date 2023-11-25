@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../css/Welcome.css";
+import { Link } from "react-router-dom";
 
 function Welcome({ triggerReloadSelectedFile }) {
   const [selectedFile, setSelectedFile] = useState({ "name": "No Selected" });
@@ -46,9 +47,9 @@ function Welcome({ triggerReloadSelectedFile }) {
           <h1 className="">MLOW</h1>
         </div>
         <nav className=" flex gap-5 mr-4">
-          <li className=" list-none text-xl border-r-2 pr-3  outline outline-offset-4"><a href="#">Home</a></li>
-          <li className=" list-none text-xl border-r-2 pr-3"><a href="#">Pricing</a></li>
-          <li className=" list-none text-xl"><a href="#">Help</a></li>
+          <li className=" list-none text-xl border-r-2 pr-3  outline outline-offset-4"><Link to="/">Home</Link></li>
+          <li className=" list-none text-xl border-r-2 pr-3"><Link to={'/pricing'}>Pricing</Link></li>
+          <li className=" list-none text-xl"><Link to={"/help"}>Help</Link></li>
         </nav>
         <ul>
         <li className=" list-none text-xl bg-purple-500 transition delay-100 hover:bg-pink-400 shadow-purple-500 px-4 rounded-3xl p-3"
