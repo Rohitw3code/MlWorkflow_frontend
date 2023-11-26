@@ -50,7 +50,7 @@ export default function Home() {
   const [color,setColor] = useState('#87C4FF')
   return (
     <ThemeContext.Provider value={color}>
-    <div className={`relative ${color === '#ED9ED6' && 'bg-pink-200'} transition-all ease-linear delay-200 duration-500 ${color === '#87C4FF' && 'bg-blue-200'}
+    <div className={`relative ${color === '#ED9ED6' && 'bg-pink-200'} transition-all ease-linear delay-200 duration-300 ${color === '#87C4FF' && 'bg-blue-200'}
       ${color === '#9ADE7B' && 'bg-green-200'} ${color === '#FFCF96' && 'bg-yellow-200'} ${color === 'gradient--pink' && 'bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-400'}
       ${color === 'gradient--black' && 'bg-gradient-to-t from-slate-900 via-slate-800 to-slate-900 text-white'} ${color === 'aurora--bgr' && "bg-[url('/aurora1.jpg')]"} `}
       style={{
@@ -73,14 +73,12 @@ export default function Home() {
       ${color === '#9ADE7B' && 'text-green-800'} ${color === '#FFCF96' && 'text-yellow-800'} ${color === 'gradient--pink' && 'text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-pink-700'}`} style={{ fontFamily : 'Goza',fontSize : 'clamp(5vw,5rem,4vw)'}}>MLQuickFlow</h1>
       </div>
   </div>
-  <div className=' min-h-screen'>
-      <h1 className={`text-2xl  p-5 font-semibold border-t-2 border-b-2 ${color === '#ED9ED6' && 'border-pink-500'} ${color === '#87C4FF' && 'border-blue-500'}
-      ${color === '#9ADE7B' && 'border-green-500'} ${color === '#FFCF96' && 'border-yellow-500'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
-      ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/30 custom--bg--pink text-slate-300'}`}
-      style={{ fontFamily : 'ClashGrotesk', fontSize : 'clamp(3vw,2.5rem,4vw)',}}>
-        Data Preprocessing
-      </h1>
-
+  <div className=' min-h-screen border-b-2 border-blue-500'>
+    <div className='p-2'>
+      <div className=' w-full  lg:w-1/2 '>
+      <img src="/data_preprocess.png"></img>
+      </div>
+      </div>
       <div className=" w-full flex flex-col items-center justify-center">
       <div className="m-5" style={{
          fontFamily : 'Poppins'
@@ -111,30 +109,26 @@ export default function Home() {
       </div>
 
       <div className={`section B top-8 backdrop-blur-lg ${color === 'aurora--bgr' && ""}`}>
-        <h1 className={`text-2xl  p-5 font-semibold border-t-2 border-b-2 ${color === '#ED9ED6' && 'border-pink-500'} ${color === '#87C4FF' && 'border-blue-500'}
-      ${color === '#9ADE7B' && 'border-green-500'} ${color === '#FFCF96' && 'border-yellow-500'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
-      ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/30 custom--bg--pink text-slate-200'}`}
-        style={{ fontFamily : 'ClashGrotesk', fontSize : 'clamp(3vw,3rem,3.5vw)',}} 
-        onClick={sectionBVisibleFun}>
-          Missing Value
-        </h1>
+      <div className='p-2 flex lg:justify-end'>
+      <div className=' w-full  lg:w-1/2 '>
+      <img src="/missing_value.png"></img>
+      </div>
+      </div>
         <MissingData
           triggerReloadDataTypeChange={triggerReloadDataTypeChange}
         />
       </div>
 
-      <div className={`section C backdrop-blur-lg ${color.startsWith('aurora--bgr') ? 'text-slate-200' : 'null'}`}>
+      <div className={`section C border-b-2 border-blue-500 backdrop-blur-lg ${color.startsWith('aurora--bgr') ? 'text-slate-200' : 'null'}`}>
         <DataTypeChange reloadDataTypeChange={reloadDataTypeChange} />
       </div>
 
       <div className={`section D backdrop-blur-md ${color === 'aurora--bgr' && 'text-white'}`}>
-        <h1 className={`text-2xl  p-5 font-semibold border-t-2 border-b-2 ${color === '#ED9ED6' && 'border-pink-500'} ${color === '#87C4FF' && 'border-blue-500'}
-      ${color === '#9ADE7B' && 'border-green-500'} ${color === '#FFCF96' && 'border-yellow-500'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
-      ${color === 'aurora--bgr' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}`}
-        style={{ fontFamily : 'ClashGrotesk', fontSize : 'clamp(3vw,3rem,4vw)',}}
-         onClick={sectionBVisibleFun}>
-          Data Encoding
-        </h1>
+      <div className='p-2 flex'>
+      <div className=' w-full  lg:w-1/2 '>
+      <img src="/data_encode.png"></img>
+      </div>
+      </div>
         <DataEncoding />
       </div>
 
@@ -147,6 +141,11 @@ export default function Home() {
       </div>
 
       <div className={`section E backdrop-blur-md ${color === 'aurora--bgr' && 'bg-white/50 mt-6 p-5 rounded-lg text-gray-800'}`}>
+      <div className='p-2 flex'>
+      <div className=' w-full '>
+      <img src="/ml_algo.png"></img>
+      </div>
+      </div>
         <MLAlgo />
       </div>
 

@@ -14,7 +14,6 @@ function App() {
       (prevReloadDataTypeChange) => !prevReloadDataTypeChange
     );
   };
-
   return (
     <>
     {showWelcome ? (
@@ -28,9 +27,8 @@ function App() {
     </BrowserRouter> 
 </>
     ):(
-      <Home/>    
+      <Home />    
     )}
-    
     </>
   );
 }
