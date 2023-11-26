@@ -15,6 +15,10 @@ html{
 }
 body{
     overflow-x: hidden;
+    background: url('/public/aurora1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 150%;
+    background-position: center;
 }
 .section{
     margin-right: 10px;

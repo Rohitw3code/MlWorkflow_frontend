@@ -103,7 +103,8 @@ function SelectFeatureTarget() {
                     ? ` ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}  ${color === 'gradient--black' && 'bg-slate-800'}
                     ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'} ${color === 'gradient--pink' && 'bg-pink-500'}`
                     : ` ${color === '#ED9ED6' && 'bg-pink-400'} ${color === '#87C4FF' && 'bg-blue-400'} ${color === 'gradient--black' && 'bg-slate-700 hover:text-black'}
-                    ${color === '#9ADE7B' && 'bg-green-400'} ${color === '#FFCF96' && 'bg-yellow-400'} ${color === 'gradient--pink' && 'bg-pink-600'}`
+                    ${color === '#9ADE7B' && 'bg-green-400'} ${color === '#FFCF96' && 'bg-yellow-400'} ${color === 'gradient--pink' && 'bg-pink-600'}
+                    ${color === 'aurora--bgr' && 'bg-white/70 text-gray-800'}`
                 }`}
                 onClick={() => {
                   addinfeature(column);
@@ -123,7 +124,8 @@ function SelectFeatureTarget() {
             targetfeature === column ? ` ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'} ${color === 'gradient--black' && 'bg-slate-800'}
             ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'} ${color === 'gradient--pink' && 'bg-pink-500'}`
             : ` ${color === '#ED9ED6' && 'bg-pink-400'} ${color === '#87C4FF' && 'bg-blue-400'} ${color === 'gradient--black' && 'bg-slate-700 hover:text-black'}
-            ${color === '#9ADE7B' && 'bg-green-400'} ${color === '#FFCF96' && 'bg-yellow-400'} ${color === 'gradient--pink' && 'bg-pink-600'}`
+            ${color === '#9ADE7B' && 'bg-green-400'} ${color === '#FFCF96' && 'bg-yellow-400'} ${color === 'gradient--pink' && 'bg-pink-600'}
+            ${color === 'aurora--bgr' && 'bg-white/70 text-gray-800'}`
           }`}
           onClick={() => {
             setTarget(column);

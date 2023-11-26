@@ -60,21 +60,24 @@ function Dataframe(props) {
           <div className={`border border-gray-300 uppercase p-2 rounded my-3 mx-1 flex gap-3
           ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
           ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
-          ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}`}>
+          ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+          ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/30 custom--bg--pink text-slate-200'}`}>
             <h1> Row</h1>
             <span style={{ fontFamily : 'Poppins' }}>{shape[0]}</span>
           </div>
           <div className={`border border-gray-300 uppercase p-2 rounded my-3 mx-1 flex gap-3
           ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
           ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
-          ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}`}>
+          ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+          ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/30 custom--bg--pink text-slate-200'}`}>
             <h1> Column </h1>
             <span style={{ fontFamily : 'Poppins' }}>{shape[1]}</span>
           </div>
           <div className={`border border-gray-300 uppercase p-2 rounded my-3 mx-1 flex gap-3
           ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
           ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
-          ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}`}>
+          ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+          ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/30 custom--bg--pink text-slate-200'}`}>
             <h1> Shape </h1>
             <span style={{ fontFamily : 'Poppins' }}>{shape[0]} x {shape[1]}</span>
           </div>
@@ -113,7 +116,7 @@ function Dataframe(props) {
             ))}
           </tr>
         </thead>
-        <tbody className="bg-red-700">
+        <tbody className="bg-white/50 shadow-md">
           {buttonArray.map((index) => (
             <tr  className={`${color === '#ED9ED6' && 'odd:bg-pink-200 even:bg-pink-100'} ${color === '#87C4FF' && 'odd:bg-blue-200 even:bg-blue-100'}
             ${color === '#9ADE7B' && 'odd:bg-green-200 even:bg-green-100'} ${color === '#FFCF96' && 'odd:bg-orange-200 even:bg-orange-100'}

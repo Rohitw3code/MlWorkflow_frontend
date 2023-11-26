@@ -50,9 +50,9 @@ export default function Home() {
   const [color,setColor] = useState('#87C4FF')
   return (
     <ThemeContext.Provider value={color}>
-    <div className={`relative ${color === '#ED9ED6' && 'bg-pink-200'} ${color === '#87C4FF' && 'bg-blue-200'}
+    <div className={`relative ${color === '#ED9ED6' && 'bg-pink-200'} transition-all ease-in-out duration-500 ${color === '#87C4FF' && 'bg-blue-200'}
       ${color === '#9ADE7B' && 'bg-green-200'} ${color === '#FFCF96' && 'bg-yellow-200'} ${color === 'gradient--pink' && 'bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-400'}
-      ${color === 'gradient--black' && 'bg-gradient-to-t from-slate-900 via-slate-800 to-slate-900 text-white'}`}>
+      ${color === 'gradient--black' && 'bg-gradient-to-t from-slate-900 via-slate-800 to-slate-900 text-white'} ${color === 'aurora--bgr' && "bg-[url('/aurora1.jpg')]  bg-no-repeat bg-contain"} `}>
   <div className="fixed right-0 z-40 top-1/3 p-4 bg-white rounded-l-lg flex flex-col gap-2">
       <button className=" bg-pink-500 w-8 h-8 rounded-full" onClick={() => setColor('#ED9ED6')}></button>
       <button className=" bg-blue-500 w-8 h-8 rounded-full" onClick={() => setColor('#87C4FF')}></button>
@@ -60,6 +60,7 @@ export default function Home() {
       <button className=" bg-yellow-500 w-8 h-8 rounded-full" onClick={() => setColor('#FFCF96')}></button>
       <button className=" bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-8 h-8 rounded-full" onClick={() => setColor('gradient--pink')}></button>
       <button className=" bg-gradient-to-t from-slate-900 to-slate-700 w-8 h-8 rounded-full" onClick={() => setColor('gradient--black')}></button>
+      <button className=" bg-gradient-to-t from-white/95 via-blue-300 to-blue-700 w-8 h-8 rounded-full" onClick={() => setColor('aurora--bgr')}></button>
   </div>
   <div className=" text-center mb-8">
     <div className=' w-fit  px-12 bg-white/50 shadow-xl m-auto rounded-b-full'>
@@ -67,9 +68,10 @@ export default function Home() {
       ${color === '#9ADE7B' && 'text-green-800'} ${color === '#FFCF96' && 'text-yellow-800'} ${color === 'gradient--pink' && 'text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-pink-700'}`} style={{ fontFamily : 'Goza',fontSize : 'clamp(5vw,5rem,4vw)'}}>MLQuickFlow</h1>
       </div>
   </div>
-  <div>
+  <div className=' min-h-screen'>
       <h1 className={`text-2xl  p-5 font-semibold border-t-2 border-b-2 ${color === '#ED9ED6' && 'border-pink-500'} ${color === '#87C4FF' && 'border-blue-500'}
-      ${color === '#9ADE7B' && 'border-green-500'} ${color === '#FFCF96' && 'border-yellow-500'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}`}
+      ${color === '#9ADE7B' && 'border-green-500'} ${color === '#FFCF96' && 'border-yellow-500'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/30 custom--bg--pink text-slate-300'}`}
       style={{ fontFamily : 'ClashGrotesk', fontSize : 'clamp(3vw,2.5rem,4vw)',}}>
         Data Preprocessing
       </h1>
@@ -81,12 +83,14 @@ export default function Home() {
         <div className="m-3 flex justify-center md:block">
           <div className={` w-fit p-2 rounded-lg uppercase  font-semibold text-sm md:text-xl ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
           ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && ' bg-gradient-to-r from-purple-500 to-pink-500'}
-          ${color === 'gradient--black' && 'bg-slate-700 text-white'}`}>
+          ${color === 'gradient--black' && 'bg-slate-700 text-white'}
+          ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/30 custom--bg--pink text-slate-200'}`}>
           Display{" "}
           <input
             className={` w-40 lg:w-60 outline-none p-6 border-2 mx-2 shadow-2xl h-8 rounded-lg ${color === '#ED9ED6' && 'bg-pink-300'} ${color === '#87C4FF' && 'bg-blue-300'}
             ${color === '#9ADE7B' && 'bg-green-300'} ${color === '#FFCF96' && 'bg-yellow-300'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
-            ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}`}
+            ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+            ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/70 custom--bg--pink text-slate-800'}`}
             placeholder="Enter number of rows"
             type="number"
             value={userInput}
@@ -101,9 +105,10 @@ export default function Home() {
       </div>
       </div>
 
-      <div className="section B top-8">
+      <div className={`section B top-8 backdrop-blur-lg ${color === 'aurora--bgr' && ""}`}>
         <h1 className={`text-2xl  p-5 font-semibold border-t-2 border-b-2 ${color === '#ED9ED6' && 'border-pink-500'} ${color === '#87C4FF' && 'border-blue-500'}
-      ${color === '#9ADE7B' && 'border-green-500'} ${color === '#FFCF96' && 'border-yellow-500'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}`}
+      ${color === '#9ADE7B' && 'border-green-500'} ${color === '#FFCF96' && 'border-yellow-500'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/30 custom--bg--pink text-slate-200'}`}
         style={{ fontFamily : 'ClashGrotesk', fontSize : 'clamp(3vw,3rem,3.5vw)',}} 
         onClick={sectionBVisibleFun}>
           Missing Value
@@ -113,13 +118,14 @@ export default function Home() {
         />
       </div>
 
-      <div className="section C">
+      <div className={`section C backdrop-blur-lg ${color.startsWith('aurora--bgr') ? 'text-slate-200' : 'null'}`}>
         <DataTypeChange reloadDataTypeChange={reloadDataTypeChange} />
       </div>
 
-      <div className="section D">
+      <div className={`section D backdrop-blur-md ${color === 'aurora--bgr' && 'text-white'}`}>
         <h1 className={`text-2xl  p-5 font-semibold border-t-2 border-b-2 ${color === '#ED9ED6' && 'border-pink-500'} ${color === '#87C4FF' && 'border-blue-500'}
-      ${color === '#9ADE7B' && 'border-green-500'} ${color === '#FFCF96' && 'border-yellow-500'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}`}
+      ${color === '#9ADE7B' && 'border-green-500'} ${color === '#FFCF96' && 'border-yellow-500'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'aurora--bgr' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}`}
         style={{ fontFamily : 'ClashGrotesk', fontSize : 'clamp(3vw,3rem,4vw)',}}
          onClick={sectionBVisibleFun}>
           Data Encoding
@@ -127,15 +133,15 @@ export default function Home() {
         <DataEncoding />
       </div>
 
-      <div className="section E">
+      <div className={`section E backdrop-blur-md ${color === 'aurora--bgr' && 'text-white'}`}>
         <SelectFeatureTarget />
       </div>
 
-      <div className="section E">
+      <div className={`section E backdrop-blur-md ${color === 'aurora--bgr' && 'bg-white/50 p-5 rounded-lg text-gray-800'}`}>
         <TrainTestSplit />
       </div>
 
-      <div className="section E">
+      <div className={`section E backdrop-blur-md ${color === 'aurora--bgr' && 'bg-white/50 mt-6 p-5 rounded-lg text-gray-800'}`}>
         <MLAlgo />
       </div>
 

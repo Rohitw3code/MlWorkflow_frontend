@@ -98,6 +98,7 @@ function MissingData({ triggerReloadDataTypeChange }) {
         {Object.keys(data).map((key) => (
           <div key={key} className={` text-center ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-500'}
           ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-pink-600'}
+          ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/30 custom--bg--pink text-slate-200'}
           ${color === 'gradient--black' && 'bg-slate-700'}`} style={{boxShadow: 'rgba(0,0,0,0.4) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px'}}>
             <div className=" p-2 text-center">
               {key}
@@ -108,7 +109,7 @@ function MissingData({ triggerReloadDataTypeChange }) {
         ))}
       </div>
       </div>
-      <div className=" t-4">
+      <div className={` t-4 ${color === 'aurora--bgr' && ' text-slate-200'}`}>
         <div className="text-3xl mt-4  px-3 font-semibold"
         style={{ fontFamily : 'ClashGrotesk' }}>
           Fix the missing data
@@ -118,7 +119,8 @@ function MissingData({ triggerReloadDataTypeChange }) {
           Data Imputation and Deletion
         </div>
         <div className={`m-3 w-fit rounded-md ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
-          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-purple-500'} ${color === 'gradient--black' && 'bg-slate-600'}`}>
+          ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-purple-500'} ${color === 'gradient--black' && 'bg-slate-600'}
+          ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/30 custom--bg--pink text-slate-200'}`}>
           {Object.keys(data).map(
             (key) =>
               data[key] !== 0 && (
@@ -138,7 +140,8 @@ function MissingData({ triggerReloadDataTypeChange }) {
 
         {clickedButton && (
           <div>
-          <div className={`w-fit mx-3 rounded-md flex flex-col justify-center items-center bg-white ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}`}
+          <div className={`w-fit mx-3 rounded-md flex flex-col justify-center items-center bg-white ${color === 'gradient--pink' || 'aurora--bgr' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+          ${color.startsWith('aurora--bgr') ? 'bg-white/60' : 'null'}`}
           style={{color : '#164863',fontFamily : 'Poppins',}}>
             <div className=" p-2 pb-4 border-b-2 border-gray-600 border-dashed">
             {btnDtype === "float64" && (
@@ -187,15 +190,16 @@ function MissingData({ triggerReloadDataTypeChange }) {
            </div>
            <div className={`flex rounded-md m-3 ${color === '#ED9ED6' && 'bg-pink-600'} ${color === '#87C4FF' && 'bg-blue-600'}
                ${color === '#9ADE7B' && 'bg-green-600'} ${color === '#FFCF96' && 'bg-yellow-600'} ${color === 'gradient--pink' && ' bg-gradient-to-r from-purple-500 to-pink-500'}
-               ${color === 'gradient--black' && ' bg-gradient-to-t from-slate-900 via-slate-800 to-slate-900'}`}>
+               ${color === 'gradient--black' && ' bg-gradient-to-t from-slate-900 via-slate-800 to-slate-900'}
+               ${color === 'aurora--bgr' && 'bg-white/70'}`}>
             <input
               type="text"
               placeholder="repl......"
-              className={` text-gray-100 placeholder:text-black/60 rounded-l-md outline-none border-none p-3 flex rounded-md m-3 ${color === '#ED9ED6' && 'bg-pink-800'} ${color === '#87C4FF' && 'bg-blue-800'}
+              className={` ${color.startsWith('aurora--bgr') ? 'text-slate-800' : 'text-slate-50'} placeholder:text-black/60 rounded-l-md outline-none border-none p-3 flex rounded-md m-3 ${color === '#ED9ED6' && 'bg-pink-800'} ${color === '#87C4FF' && 'bg-blue-800'}
                ${color === '#9ADE7B' && 'bg-green-800'} ${color === '#FFCF96' && 'bg-yellow-800'} ${color === 'gradient--pink' || 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}`}
             />
             <button
-              className=" text-slate-50 p-2 rounded"
+              className={`${color.startsWith('aurora--bgr') ? 'text-slate-800' : 'text-slate-50'}  p-2 rounded `}
               onClick={() => {
                 const inputValue =
                   document.querySelector(".replace-input").value; // Get the input value
@@ -216,7 +220,7 @@ function MissingData({ triggerReloadDataTypeChange }) {
               <div key={key} className="table-row">
                 <div className={`${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
           ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-pink-500'}
-          ${color === 'gradient--black' && 'bg-slate-700'} text-white p-2`}>
+          ${color === 'gradient--black' && 'bg-slate-700'} ${color.startsWith('aurora--bgr') ? 'bg-white/40 text-slate-800' : 'text-slate-50'} p-2`}>
                   {key} {updated_ds.dtypes[key]}
                 </div>
                 <div className={` text-black bg-white/40 items-center p-4`}>

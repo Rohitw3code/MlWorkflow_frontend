@@ -74,7 +74,8 @@ function TrainTestSplit() {
           <input
             className={`w-20 h-10 text-white p-1 rounded-xl my-5  ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
             ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-pink-500'}
-            ${color === 'gradient--black' && 'bg-slate-600'}`}
+            ${color === 'gradient--black' && 'bg-slate-600'}
+            ${color === 'aurora--bgr' && 'bg-white/70 text-gray-800'}`}
             placeholder="random state"
             type="number"
             value={randomstate}
@@ -87,7 +88,8 @@ function TrainTestSplit() {
           <input
             className={`w-20 h-10 text-white p-1 rounded-xl mx-3 my-5  ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
             ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-purple-500'}
-            ${color === 'gradient--black' && 'bg-slate-600'}`}
+            ${color === 'gradient--black' && 'bg-slate-600'}
+            ${color === 'aurora--bgr' && 'bg-white/70 text-gray-800'}`}
             placeholder="train-size %"
             type="number"
             value={trainsize}
@@ -101,7 +103,8 @@ function TrainTestSplit() {
         <select
           className={` p-2 rounded-md mx-3  ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
           ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'} ${color === 'gradient--pink' && 'bg-pink-500'}
-          ${color === 'gradient--black' && 'bg-slate-600'}`}
+          ${color === 'gradient--black' && 'bg-slate-600'}
+          ${color === 'aurora--bgr' && ' text-gray-800'}`}
           value={shuffle || true}
           onChange={(e) => handleShuffle(e.target.value)}
         >
