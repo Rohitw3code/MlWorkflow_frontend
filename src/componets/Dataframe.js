@@ -105,7 +105,7 @@ function Dataframe(props) {
                 className={`font-thin text-center  p-2 border-0
           ${color === '#ED9ED6' && 'bg-pink-500'} ${color === '#87C4FF' && 'bg-blue-500'}
           ${color === '#9ADE7B' && 'bg-green-500'} ${color === '#FFCF96' && 'bg-yellow-500'}
-          ${color === 'gradient--black' && 'bg-slate-700'}`}
+          ${color === 'gradient--black' && 'bg-slate-700'} ${ color === 'aurora--bgr' && 'bg-white/50 border-b-2'}`}
                 style={{
                   fontFamily : 'Poppins'
                }}
@@ -120,7 +120,8 @@ function Dataframe(props) {
           {buttonArray.map((index) => (
             <tr  className={`${color === '#ED9ED6' && 'odd:bg-pink-200 even:bg-pink-100'} ${color === '#87C4FF' && 'odd:bg-blue-200 even:bg-blue-100'}
             ${color === '#9ADE7B' && 'odd:bg-green-200 even:bg-green-100'} ${color === '#FFCF96' && 'odd:bg-orange-200 even:bg-orange-100'}
-            ${color === 'gradient--black' && 'odd:bg-gray-200 even:bg-gray-100'} ${color === 'gradient--pink' && 'odd:bg-purple-200 even:bg-purple-100'}`}
+            ${color === 'gradient--black' && 'odd:bg-gray-200 even:bg-gray-100'} ${color === 'gradient--pink' && 'odd:bg-purple-200 even:bg-purple-100'}
+            `}
             style={{
               fontFamily : 'Poppins'
            }}>

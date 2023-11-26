@@ -50,9 +50,14 @@ export default function Home() {
   const [color,setColor] = useState('#87C4FF')
   return (
     <ThemeContext.Provider value={color}>
-    <div className={`relative ${color === '#ED9ED6' && 'bg-pink-200'} transition-all ease-in-out duration-500 ${color === '#87C4FF' && 'bg-blue-200'}
+    <div className={`relative ${color === '#ED9ED6' && 'bg-pink-200'} transition-all ease-linear delay-200 duration-500 ${color === '#87C4FF' && 'bg-blue-200'}
       ${color === '#9ADE7B' && 'bg-green-200'} ${color === '#FFCF96' && 'bg-yellow-200'} ${color === 'gradient--pink' && 'bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-400'}
-      ${color === 'gradient--black' && 'bg-gradient-to-t from-slate-900 via-slate-800 to-slate-900 text-white'} ${color === 'aurora--bgr' && "bg-[url('/aurora1.jpg')]  bg-no-repeat bg-contain"} `}>
+      ${color === 'gradient--black' && 'bg-gradient-to-t from-slate-900 via-slate-800 to-slate-900 text-white'} ${color === 'aurora--bgr' && "bg-[url('/aurora1.jpg')]"} `}
+      style={{
+        backgroundRepeat: 'no-repeat',
+    backgroundSize: '100% 150%',
+    backgroundPosition: 'center'
+      }}>
   <div className="fixed right-0 z-40 top-1/3 p-4 bg-white rounded-l-lg flex flex-col gap-2">
       <button className=" bg-pink-500 w-8 h-8 rounded-full" onClick={() => setColor('#ED9ED6')}></button>
       <button className=" bg-blue-500 w-8 h-8 rounded-full" onClick={() => setColor('#87C4FF')}></button>
