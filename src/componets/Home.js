@@ -22,42 +22,42 @@ export default function Home() {
     {
       id: "1",
       tabTitle: "Data-PreProcessing",
-      moveto : '#section-A',
+      moveto : '#1',
       tabClass: "myCustomClass",
       tabClicked: false
     },
     {
       id: "2",
       tabTitle: "Missing Values",
-      moveto : '#section-B',
+      moveto : '#2',
       tabClass: "myCustomClass",
       tabClicked: false
     },
     {
       id: "3",
       tabTitle: "Data Encoding",
-      moveto : '#section-C',
+      moveto : '#3',
       tabClass: "myCustomClass",
       tabClicked: false
     },
     {
       id: "4",
       tabTitle: "Features",
-      moveto : '#section-D',
+      moveto : '#4',
       tabClass: "myCustomClass",
       tabClicked: false
     },
     {
       id: "5",
       tabTitle: "Train - Test",
-      moveto : '#section-E',
+      moveto : '#5',
       tabClass: "myCustomClass",
       tabClicked: false
     },
     {
       id: "6",
       tabTitle: "ML - Algorithms",
-      moveto : '#section-F',
+      moveto : '#6',
       tabClass: "myCustomClass",
       tabClicked: false
     }
@@ -187,9 +187,28 @@ export default function Home() {
       </div>
   </div>
   <div id="1" data-section className=' min-h-screen border-b-2 border-blue-500'>
-    <div className='p-2'>
-      <div className=' w-full  lg:w-1/2 '>
-      <img src="/data_preprocess.png"></img>
+    <div className='ml-5 group perspective-1000 h-60 w-full  lg:w-1/2'>
+      <div className=' relative preserve-3d w-full h-full'>
+      <div className={` absolute w-full duration-500 hover:translate-x-[420px] h-full backface-hidden
+      ${color === '#ED9ED6' && 'bg-pink-200'} ${color === '#87C4FF' && 'bg-blue-200'}
+      ${color === '#9ADE7B' && 'bg-green-200'} ${color === '#FFCF96' && 'bg-yellow-200'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/70 custom--bg--pink text-slate-800'}`}>
+      <img src="/data_preprocess.png" className=''></img>
+      </div>
+      <div className={` rounded-2xl w-full h-full grid items-center px-10
+      ${color === '#ED9ED6' && 'bg-pink-300'} ${color === '#87C4FF' && 'bg-blue-300'}
+      ${color === '#9ADE7B' && 'bg-green-300'} ${color === '#FFCF96' && 'bg-yellow-300'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/70 custom--bg--pink text-slate-800'}`}>
+        <ul>
+          <li className=' list-disc font-Poppins'>Getting the dataset</li>
+          <li className=' list-disc font-Poppins'>Importing libraries</li>
+          <li className=' list-disc font-Poppins'>Finding Missing Data</li>
+          <li className=' list-disc font-Poppins'>Encoding Categorical Data</li>
+          <li className=' list-disc font-Poppins'>Splitting dataset into training and test set</li>
+        </ul>
+      </div>
       </div>
       </div>
       <div className=" w-full flex flex-col items-center justify-center">
@@ -223,8 +242,29 @@ export default function Home() {
 
       <div id='2' data-section className={`section B top-8 backdrop-blur-lg ${color === 'aurora--bgr' && ""}`}>
       <div className='p-2 flex lg:justify-end'>
-      <div className=' w-full  lg:w-1/2 '>
-      <img src="/missing_value.png"></img>
+      <div className='ml-5 group perspective-1000 h-60 w-full  lg:w-1/2'>
+      <div className=' relative preserve-3d w-full h-full'>
+      <div className={` absolute w-full duration-500 hover:-translate-x-[420px] h-full backface-hidden
+      ${color === '#ED9ED6' && 'bg-pink-200'} ${color === '#87C4FF' && 'bg-blue-200'}
+      ${color === '#9ADE7B' && 'bg-green-200'} ${color === '#FFCF96' && 'bg-yellow-200'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/70 custom--bg--pink text-slate-800'}`}>
+      <img src="/missing_value.png" className=' p-2'></img>
+      </div>
+      <div className={` rounded-2xl w-full h-full grid justify-end items-center px-1
+      ${color === '#ED9ED6' && 'bg-pink-300'} ${color === '#87C4FF' && 'bg-blue-300'}
+      ${color === '#9ADE7B' && 'bg-green-300'} ${color === '#FFCF96' && 'bg-yellow-300'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/70 custom--bg--pink text-slate-800'}`}>
+        <ul>
+          <li className=' list-disc font-Poppins'>Deleting Rows with missing values</li>
+          <li className=' list-disc font-Poppins'>Impute missing values for continuous variable</li>
+          <li className=' list-disc font-Poppins'>Impute missing values for categorical variable</li>
+          <li className=' list-disc font-Poppins'>Prediction of missing values</li>
+          <li className=' list-disc font-Poppins'>Imputation using Deep Learning Library — Datawig</li>
+        </ul>
+      </div>
+      </div>
       </div>
       </div>
         <MissingData
@@ -237,9 +277,27 @@ export default function Home() {
       </div>
 
       <div  id="3" data-section className={`section D backdrop-blur-md ${color === 'aurora--bgr' && 'text-white'}`}>
-      <div className='p-2 flex'>
-      <div className=' w-full  lg:w-1/2 '>
-      <img src="/data_encode.png"></img>
+      <div className='ml-5 group perspective-1000 h-60 w-full  lg:w-1/2'>
+      <div className=' relative preserve-3d w-full h-full'>
+      <div className={` absolute w-full duration-500 hover:translate-x-[420px] h-full backface-hidden
+      ${color === '#ED9ED6' && 'bg-pink-200'} ${color === '#87C4FF' && 'bg-blue-200'}
+      ${color === '#9ADE7B' && 'bg-green-200'} ${color === '#FFCF96' && 'bg-yellow-200'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/70 custom--bg--pink text-slate-800'}`}>
+      <img src="/data_encode.png" className=' p-3'></img>
+      </div>
+      <div className={` rounded-2xl w-full h-full grid items-center px-10
+      ${color === '#ED9ED6' && 'bg-pink-300'} ${color === '#87C4FF' && 'bg-blue-300'}
+      ${color === '#9ADE7B' && 'bg-green-300'} ${color === '#FFCF96' && 'bg-yellow-300'} ${color === 'gradient--pink' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'gradient--black' && 'border-none backdrop-blur-sm bg-white/30 custom--bg--pink'}
+      ${color === 'aurora--bgr' && 'border-none backdrop-blur-md bg-white/70 custom--bg--pink text-slate-800'}`}>
+        <ul>
+          <li className=' list-disc font-Poppins'>One-hot/dummy encoding</li>
+          <li className=' list-disc font-Poppins'>Label / Ordinal encoding</li>
+          <li className=' list-disc font-Poppins'>Target encoding</li>
+          <li className=' list-disc font-Poppins'>Frequency / count encoding</li>
+        </ul>
+      </div>
       </div>
       </div>
         <DataEncoding />
