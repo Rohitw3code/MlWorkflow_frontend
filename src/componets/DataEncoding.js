@@ -19,9 +19,11 @@ function DataEncoding() {
     fetchData();
   }, []);
 
+  const url = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
+
   const fetchData = async () => {
     try {
-      const resp = await fetch(`http://127.0.0.1:5001/api/encode-columns`);
+      const resp = await fetch(`${url}/api/encode-columns`);
       if (resp.ok) {
         const jsonData = await resp.json();
         setColumns(jsonData.columns);
@@ -37,7 +39,7 @@ function DataEncoding() {
   };
 
   const fetchColsData = async () => {
-    const url = "http://127.0.0.1:5001/api/df/colsdata"; // Replace with your API endpoint URL
+    const url = `${url}/api/df/colsdata`; // Replace with your API endpoint URL
     // Data to be sent in the request body
     const payload = {
       cols: selectedColumns,
@@ -70,7 +72,7 @@ function DataEncoding() {
   };
 
   const encodeDF = async () => {
-    const url = "http://127.0.0.1:5001/api/df/encode-df"; // Replace with your API endpoint URL
+    const url = `${url}/api/df/encode-df`; // Replace with your API endpoint URL
     // Data to be sent in the request body
     const payload = {
       cols: selectedColumns,

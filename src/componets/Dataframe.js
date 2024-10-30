@@ -13,6 +13,9 @@ function Dataframe(props) {
     fetchData();
   }, [props.cols]);
 
+  const weburl = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
+
+
   const fetchData = async () => {
     try {
       const queryParams = new URLSearchParams();
@@ -22,7 +25,7 @@ function Dataframe(props) {
         queryParams.append("cols", [].join(","));
       }
 
-      const url = `http://127.0.0.1:5001/api/df/${
+      const url = `${weburl}/api/df/${
         props.rows
       }?${queryParams.toString()}`;
       const resp = await fetch(url);

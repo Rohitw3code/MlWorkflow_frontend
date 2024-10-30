@@ -5,15 +5,20 @@ import { Link } from "react-router-dom";
 function Welcome({ triggerReloadSelectedFile }) {
   const [selectedFile, setSelectedFile] = useState({ "name": "No Selected" });
 
+  console.log("************************url : ")
+
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setSelectedFile(file);
   };
 
+  const url = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
+
   const loadData = async () => {
     try {
       const resp = await fetch(
-        `http://127.0.0.1:5001/api/load-dataset/${selectedFile.name}`
+        `${url}/api/load-dataset/${selectedFile.name}`
       );
       if (resp.ok) {
         const jsonData = await resp.json();
@@ -44,7 +49,7 @@ function Welcome({ triggerReloadSelectedFile }) {
         fontFamily : 'Poppins'
       }}>
         <div className=" text-2xl p-2">
-          <h1 className="">MLOW</h1>
+          <h1 className="">MLflow</h1>
         </div>
         <nav className=" flex gap-5 mr-4">
           <li className=" list-none text-xl border-r-2 pr-3  outline outline-offset-4"><Link to="/">Home</Link></li>

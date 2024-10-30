@@ -11,10 +11,11 @@ function DfUniqueData() {
     useEffect(() => {
         fetchData();
     }, []);
+    const url = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
 
     const fetchData = async () => {
         try {
-            const resp = await fetch(`http://127.0.0.1:5001/api/df/dfuniquecount`);
+            const resp = await fetch(`${url}/api/df/dfuniquecount`);
             if (resp.ok) {
                 const jsonData = await resp.json();
                 setData(jsonData.data);

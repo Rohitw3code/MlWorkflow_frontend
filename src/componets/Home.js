@@ -114,9 +114,11 @@ export default function Home() {
     );
   };
 
+  const url = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
+
   const fetchData = async () => {
     try {
-      const url = `http://127.0.0.1:5001/api/dfcols`;
+      const url = `${url}/api/dfcols`;
       const resp = await fetch(url);
       if (resp.ok) {
         const jsonData = await resp.json();

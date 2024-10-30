@@ -11,9 +11,10 @@ function TrainTestSplit() {
   const [trainshape, setTrainShape] = useState([]);
   const [testshape, setTestShape] = useState([]);
   const color = useContext(ThemeContext)
+  const url = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
 
   const splitDf = async () => {
-    const url = "http://127.0.0.1:5001/api/train-test-split";
+    const url = `${url}/api/train-test-split`;
 
     const data = {
       randomstate: randomstate,

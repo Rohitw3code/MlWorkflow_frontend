@@ -14,9 +14,11 @@ function SelectFeatureTarget() {
     fetchData();
   }, []);
 
+  const url = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
+
   const fetchData = async () => {
     try {
-      const resp = await fetch("http://127.0.0.1:5001/api/encode-columns");
+      const resp = await fetch(`${url}/api/encode-columns`);
       if (resp.ok) {
         const jsonData = await resp.json();
         setColumns(jsonData.columns);
@@ -28,7 +30,7 @@ function SelectFeatureTarget() {
   };
 
   const setTarget = async (col) => {
-    const url = `http://127.0.0.1:5001/api/select-target-feature/${col}`;
+    const url = `${url}/api/select-target-feature/${col}`;
     try {
       const resp = await fetch(url);
       if (resp.ok) {
@@ -45,7 +47,7 @@ function SelectFeatureTarget() {
   };
 
   const updateFeature = async (sf, tf) => {
-    const url = "http://127.0.0.1:5001/api/feature-target";
+    const url = `${url}/api/feature-target`;
     const payload = {
       feature: sf,
       target: tf,
