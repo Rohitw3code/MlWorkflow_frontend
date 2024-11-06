@@ -9,11 +9,11 @@ function Unique (){
     useEffect(() => {
         fetchUnique();
     }, []);
-    const url = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
+    const apiurl = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
 
     const fetchUnique= async () => {
       try {
-        const resp = await fetch(`${url}/api/dataunique`);
+        const resp = await fetch(`${apiurl}/api/dataunique`);
         if (resp.ok) {
             const jsonData = await resp.json();
             setLoading(false); // Set loading to false after data is fetched

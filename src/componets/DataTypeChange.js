@@ -12,11 +12,11 @@ function DataTypeChange({ reloadDataTypeChange }) {
   const [error, setError] = useState(null);
   const color = useContext(ThemeContext)
 
-  const url = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
+  const apiurl = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
 
   const fetchData = async () => {
     try {
-      const resp = await fetch(`${url}/api/df/datatypechange`);
+      const resp = await fetch(`${apiurl}/api/df/datatypechange`);
       if (resp.ok) {
         const jsonData = await resp.json();
         setDtypes(jsonData.dtypes);
@@ -32,7 +32,7 @@ function DataTypeChange({ reloadDataTypeChange }) {
   };
 
   const changeDataType = async (col, dtype) => {
-    const url = `${url}/api/df/datatypechange`; // Replace with your API endpoint URL
+    const url = `${apiurl}/api/df/datatypechange`; // Replace with your API endpoint URL
     // Data to be sent in the request body
     const data = {
       key: col,

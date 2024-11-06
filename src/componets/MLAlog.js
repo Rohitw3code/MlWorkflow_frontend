@@ -18,12 +18,12 @@ function MLAlgo() {
   const [paramsKey, setParamsKey] = useState([]);
   const [showParams, setShowParams] = useState(true);
   const color = useContext(ThemeContext)
-  const url = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
+  const apiurl = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
 
   const fetchRegressionAlog = async () => {
     try {
       const resp = await fetch(
-        `${url}/api/regression-classification-algo`
+        `${apiurl}/api/regression-classification-algo`
       );
       if (resp.ok) {
         const jsonData = await resp.json();
@@ -50,7 +50,7 @@ function MLAlgo() {
   };
 
   const fetchModelParams = async () => {
-    const url = `${url}/api/model-params`;
+    const url = `${apiurl}/api/model-params`;
     const data = {
       algoType: algoType,
       algo: selectAlgo,
@@ -85,7 +85,7 @@ function MLAlgo() {
   };
 
   const predictFun = async () => {
-    const url = `${url}/api/mode-predict`;
+    const url = `${apiurl}/api/mode-predict`;
     const data = {
       featureValue: inputValues,
     };
@@ -117,7 +117,7 @@ function MLAlgo() {
   };
 
   const modelTrain = async () => {
-    const url = `${url}/api/model-train-algo`;
+    const url = `${apiurl}/api/model-train-algo`;
     const data = {
       algoType: algoType,
       algo: selectAlgo,

@@ -13,12 +13,12 @@ function Welcome({ triggerReloadSelectedFile }) {
     setSelectedFile(file);
   };
 
-  const url = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
+  const apiurl = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
 
   const loadData = async () => {
     try {
       const resp = await fetch(
-        `${url}/api/load-dataset/${selectedFile.name}`
+        `${apiurl}/api/load-dataset/${selectedFile.name}`
       );
       if (resp.ok) {
         const jsonData = await resp.json();

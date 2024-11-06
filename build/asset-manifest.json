@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bb8dd7e8.css",
+    "main.js": "/static/js/main.cc19f384.js",
+    "static/js/787.d8b49a28.chunk.js": "/static/js/787.d8b49a28.chunk.js",
+    "static/media/Goza-vmegD.ttf": "/static/media/Goza-vmegD.315cb41c3801e5322a95.ttf",
+    "static/media/neuron.png": "/static/media/neuron.2c29dcd640d102a3951f.png",
+    "static/media/ClashGrotesk-Regular.otf": "/static/media/ClashGrotesk-Regular.3facfb078b36e5ad3cdf.otf",
+    "index.html": "/index.html",
+    "main.bb8dd7e8.css.map": "/static/css/main.bb8dd7e8.css.map",
+    "main.cc19f384.js.map": "/static/js/main.cc19f384.js.map",
+    "787.d8b49a28.chunk.js.map": "/static/js/787.d8b49a28.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb8dd7e8.css",
+    "static/js/main.cc19f384.js"
+  ]
+}

@@ -114,11 +114,11 @@ export default function Home() {
     );
   };
 
-  const url = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
+  const apiurl = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
 
   const fetchData = async () => {
     try {
-      const url = `${url}/api/dfcols`;
+      const url = `${apiurl}/api/dfcols`;
       const resp = await fetch(url);
       if (resp.ok) {
         const jsonData = await resp.json();
@@ -161,8 +161,8 @@ export default function Home() {
     <div className=' flex gap-3 place-items-center'>
       <img src="/aurora2.jpg" className=' w-16 h-16 rounded-full'/>
       <div className=' flex flex-col' style={{ fontFamily : 'Poppins'}}>
-          <h1 className='  font-semibold'>Rishabh RAJ</h1>
-          <p className=' font-mono text-sm'>ML LEARNER</p>
+          <h1 className='  font-semibold'>Hello buddy 🌝</h1>
+          <p className=' font-mono text-sm'>Make your work in flow</p>
       </div>
     </div>
     <ul className=' w-full flex flex-col gap-1'>

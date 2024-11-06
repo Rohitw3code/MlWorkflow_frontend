@@ -18,11 +18,11 @@ function MissingData({ triggerReloadDataTypeChange }) {
     fetchData();
   }, []);
 
-  const url = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
+  const apiurl = 'https://mlflow-b0hqc7chc3fjcvd0.centralindia-01.azurewebsites.net'
 
   const fetchData = async () => {
     try {
-      const resp = await fetch(`${url}/api/df/missingdata`);
+      const resp = await fetch(`${apiurl}/api/df/missingdata`);
       if (resp.ok) {
         const jsonData = await resp.json();
         setData(jsonData.missing);
@@ -39,7 +39,7 @@ function MissingData({ triggerReloadDataTypeChange }) {
   };
 
   const post = async (key, value, replace = "nan") => {
-    const url = `${url}/api/df/missingdata/operation`; // Replace with your API endpoint URL
+    const url = `${apiurl}/api/df/missingdata/operation`; // Replace with your API endpoint URL
     // Data to be sent in the request body
     const data = {
       key: key,
